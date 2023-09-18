@@ -1,0 +1,28 @@
+# Node.js 패키지 관리자인 npm과 yarn이 생성하는 디렉토리
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# 개발 환경과 관련된 디렉토리 및 파일 (예: Visual Studio Code 설정)
+.vscode/
+.idea/
+
+# 로컬 설정 파일 (환경 변수 및 비밀 키를 포함하는 파일)
+.env
+
+# 빌드 및 컴파일된 결과물
+dist/
+out/
+build/
+
+# 로그 및 테스트 결과 파일
+*.log
+test-report.xml
+
+# 에디터 임시 파일
+*.swp
+.DS_Store
+
+# 사용자 지정 로컬 디렉토리 및 파일 (프로젝트에 따라 다를 수 있음)
+custom_directory/
+custom_file.txt

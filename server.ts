@@ -4,14 +4,22 @@ dotenv.config();
 
 import app from "./src/app";
 import { PORT } from "./src/config/appConfig";
-
+import databaseConfig from "./src/config/databaseConfig";
 app.set("port", PORT);
 
 const server = createServer(app);
 
-server.listen(PORT);
-server.on("error", onError);
-server.on("listening", onListening);
+// DatabaseConfig를 초기화하고 MongoDB와 연결
+databaseConfig
+  .connect()
+  .then(() => {
+    server.listen(PORT);
+    server.on("error", onError);
+    server.on("listening", onListening);
+  })
+  .catch((error) => {
+    console.error("MongoDB 연결 실패:", error);
+  });
 
 function onError(error: NodeJS.ErrnoException): void {
   if (error.syscall !== "listen") {

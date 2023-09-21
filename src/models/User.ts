@@ -1,17 +1,14 @@
 import { Schema, model, Document } from "mongoose";
 
 interface UserDocument extends Document {
-  username: string;
-  email: string;
-  password: string;
+  name: string;
 }
 
 const userSchema = new Schema<UserDocument>({
-  username: { type: String, required: true },
-  email: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
+  name: { type: String, required: true },
 });
 
-const User = model<UserDocument>("User", userSchema);
+// 1. 모델이름, 스키마, 컬렉션 이름(옵션)
+const User = model<UserDocument>("User", userSchema, "user");
 
 export default User;
